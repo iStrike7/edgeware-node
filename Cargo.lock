@@ -1581,7 +1581,6 @@ dependencies = [
  "pallet-proxy",
  "pallet-randomness-collective-flip",
  "pallet-recovery",
- "pallet-renassets",
  "pallet-scheduler",
  "pallet-session",
  "pallet-staking",
@@ -4518,22 +4517,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pallet-renassets"
-version = "2.0.0"
-dependencies = [
- "frame-benchmarking",
- "frame-support",
- "frame-system",
- "pallet-balances",
- "parity-scale-codec",
- "serde",
- "sp-core",
- "sp-io",
- "sp-runtime",
- "sp-std",
-]
-
-[[package]]
 name = "pallet-scheduler"
 version = "2.0.0"
 source = "git+https://github.com/paritytech/substrate.git#4b8c862ae3b0d34ecdc351888469f81704df68e2"
@@ -5753,7 +5736,7 @@ dependencies = [
  "frame-support",
  "frame-system",
  "hex-literal",
- "pallet-renassets",
+ "pallet-assets",
  "parity-scale-codec",
  "sp-core",
  "sp-io",

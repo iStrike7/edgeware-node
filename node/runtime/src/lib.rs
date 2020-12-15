@@ -951,16 +951,6 @@ impl pallet_assets::Config for Runtime {
 	type WeightInfo = ();
 }
 
-impl pallet_renassets::Config for Runtime {
-	type Currency = Balances;
-	type Event = Event;
-	type Balance = Balance;
-	type AssetId = constants::currency::AssetId;
-	type ForceOrigin = frame_system::EnsureRoot<AccountId>;
-	type AssetDepositBase = AssetDepositBase;
-	type AssetDepositPerZombie = AssetDepositPerZombie;
-	type WeightInfo = ();
-}
 
 parameter_types! {
 	pub const UnsignedPriority: u64 = 1 << 20;
@@ -1022,7 +1012,6 @@ construct_runtime!(
 		ChainBridge: chainbridge::{Module, Call, Storage, Event<T>},
 		EdgeBridge: edge_chainbridge::{Module, Call, Event<T>},
 
-		RenAssets: pallet_renassets::{Module, Call, Storage, Event<T>},
 		RenVMBridge: renvm_bridge::{Module, Call, Storage, Event<T>}
 	}
 );

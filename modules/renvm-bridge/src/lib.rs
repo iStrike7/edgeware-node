@@ -29,7 +29,7 @@ mod tests;
 type EcdsaSignature = ecdsa::Signature;
 type DestAddress = Vec<u8>;
 
-pub trait Config: frame_system::Config + pallet_renassets::Config {
+pub trait Config: frame_system::Config + pallet_assets::Config {
 	type Event: From<Event<Self>> + Into<<Self as system::Config>::Event>;
 	type UnsignedPriority: Get<TransactionPriority>;
 	type RenVMTokenIdType: Member + Parameter + AtLeast32BitUnsigned + Default + Copy + HasCompact;
@@ -39,8 +39,8 @@ pub trait Config: frame_system::Config + pallet_renassets::Config {
 
 
 
-	type Balance<T>= <T as pallet_renassets::Config>::Balance;
-	type AssetIdType<T>= <T as pallet_renassets::Config>::AssetId;
+	type Balance<T>= <T as pallet_assets::Config>::Balance;
+	type AssetIdType<T>= <T as pallet_assets::Config>::AssetId;
 
 // struct RenTokenInfo
 // ren_token_name string
@@ -146,7 +146,7 @@ decl_module! {
 
 			let pallet_account = Self::account_id();
 
-			pallet_renassets::Module::<T>::force_create(
+			pallet_assets::Module::<T>::force_create(
 				RawOrigin::Root.into(),
 				_ren_token_asset_id.into(),
 				T::Lookup::unlookup(pallet_account),
