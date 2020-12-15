@@ -86,6 +86,9 @@ chainbridge = { path = "../../modules/chainbridge", default-features = false }
 orml-tokens = { git = "https://github.com/open-web3-stack/open-runtime-module-library", rev = "f69c13bf90cc007b553ce228108ad822c33f8459", default-features = false }
 orml-traits = { git = "https://github.com/open-web3-stack/open-runtime-module-library", rev = "f69c13bf90cc007b553ce228108ad822c33f8459", default-features = false }
 
+pallet-renassets = {path = "../../modules/renassets", default-features = false, version = '2.0.0'}
+renvm-bridge = {path = "../../modules/renvm-bridge", default-features = false, version = '0.1.0'}
+
 # used for runtime benchmarking
 frame-benchmarking = { version = "2.0.0", default-features = false, optional = true }
 frame-system-benchmarking = { version = "2.0.0", default-features = false, optional = true }
@@ -161,6 +164,8 @@ std = [
 	"chainbridge/std",
 	"orml-tokens/std",
 	"orml-traits/std",
+	"pallet-renassets/std",
+	"renvm-bridge/std"
 ]
 
 runtime-benchmarks = [

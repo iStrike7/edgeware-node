@@ -1581,6 +1581,7 @@ dependencies = [
  "pallet-proxy",
  "pallet-randomness-collective-flip",
  "pallet-recovery",
+ "pallet-renassets",
  "pallet-scheduler",
  "pallet-session",
  "pallet-staking",
@@ -1593,6 +1594,7 @@ dependencies = [
  "pallet-utility",
  "pallet-vesting",
  "parity-scale-codec",
+ "renvm-bridge",
  "rustc-hex",
  "safe-mix",
  "serde",
@@ -4516,6 +4518,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-renassets"
+version = "2.0.0"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "pallet-balances",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
 name = "pallet-scheduler"
 version = "2.0.0"
 source = "git+https://github.com/paritytech/substrate.git#4b8c862ae3b0d34ecdc351888469f81704df68e2"
@@ -5726,6 +5744,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3acd125665422973a33ac9d3dd2df85edad0f4ae9b00dafb1a05e43a9f5ef8e7"
 dependencies = [
  "winapi 0.3.9",
+]
+
+[[package]]
+name = "renvm-bridge"
+version = "0.1.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "hex-literal",
+ "pallet-renassets",
+ "parity-scale-codec",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
 ]
 
 [[package]]

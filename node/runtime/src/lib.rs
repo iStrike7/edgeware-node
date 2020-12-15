@@ -931,7 +931,7 @@ impl edge_chainbridge::Config for Runtime {
     type Event = Event;
     type BridgeOrigin = chainbridge::EnsureBridge<Runtime>;
 	type Currency = Balances;
-    type NativeTokenId = NativeTokenId;    
+    type NativeTokenId = NativeTokenId;
     type NativeTransferFee = NativeTransferFee;
 }
 
@@ -949,6 +949,31 @@ impl pallet_assets::Config for Runtime {
 	type AssetDepositBase = AssetDepositBase;
 	type AssetDepositPerZombie = AssetDepositPerZombie;
 	type WeightInfo = ();
+}
+
+impl pallet_renassets::Config for Runtime {
+	type Currency = Balances;
+	type Event = Event;
+	type Balance = Balance;
+	type AssetId = constants::currency::AssetId;
+	type ForceOrigin = frame_system::EnsureRoot<AccountId>;
+	type AssetDepositBase = AssetDepositBase;
+	type AssetDepositPerZombie = AssetDepositPerZombie;
+	type WeightInfo = ();
+}
+
+parameter_types! {
+	pub const UnsignedPriority: u64 = 1 << 20;
+	pub const RenVMModuleId: ModuleId = ModuleId(*b"RenToken");
+}
+
+
+impl renvm_bridge::Config for Runtime {
+	type Event = Event;
+	type UnsignedPriority = UnsignedPriority;
+	type RenVMTokenIdType = u32;
+	type ControllerOrigin = frame_system::EnsureRoot<AccountId>;
+	type ModuleId = RenVMModuleId;
 }
 
 construct_runtime!(
@@ -996,6 +1021,9 @@ construct_runtime!(
 		TreasuryReward: treasury_reward::{Module, Call, Storage, Config<T>, Event<T>},
 		ChainBridge: chainbridge::{Module, Call, Storage, Event<T>},
 		EdgeBridge: edge_chainbridge::{Module, Call, Event<T>},
+
+		RenAssets: pallet_renassets::{Module, Call, Storage, Event<T>},
+		RenVMBridge: renvm_bridge::{Module, Call, Storage, Event<T>}
 	}
 );
 

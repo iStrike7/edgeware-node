@@ -13,6 +13,8 @@ members = [
 	"node/runtime",
 	"node/runtime-interface",
 	"node/testing",
+	"modules/renassets",
+	"modules/renvm-bridge",
 ]
 
 [profile.release]
